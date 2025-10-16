@@ -31,6 +31,7 @@ function Earth() {
 function FloatingGalleryCard({ src, index, total, radius = 34, onClick }) {
   const ref = useRef();
   const texture = useTexture(src);
+  const [hovered, setHovered] = useState(false);
 
   useFrame(({ clock }) => {
     const speed = 0.12;
@@ -44,11 +45,21 @@ function FloatingGalleryCard({ src, index, total, radius = 34, onClick }) {
         Math.sin(angle) * radius
       );
       ref.current.lookAt(0, 0, 0);
+
+      // Smooth scale for hover
+      const targetScale = hovered ? 1.2 : 1;
+      ref.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
     }
   });
 
   return (
-    <mesh ref={ref} onClick={onClick}>
+    <mesh
+      ref={ref}
+      onClick={onClick}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      cursor="pointer"
+    >
       <planeGeometry args={[10, 7.5]} />
       <meshBasicMaterial
         map={texture}
@@ -56,9 +67,17 @@ function FloatingGalleryCard({ src, index, total, radius = 34, onClick }) {
         transparent
         opacity={1}
       />
+      {/* Optional: glowing outline */}
+      {hovered && (
+        <mesh>
+          <planeGeometry args={[10.5, 8]} />
+          <meshBasicMaterial color="#3b82f6" opacity={0.3} transparent />
+        </mesh>
+      )}
     </mesh>
   );
 }
+
 
 // --- Modal ---
 function GalleryModal({ src, onClose }) {
