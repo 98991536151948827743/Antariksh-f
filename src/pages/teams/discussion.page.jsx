@@ -35,7 +35,7 @@ const DiscussionPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Khagol <span className="text-blue-400">Discussion</span>
+        <span className="text-blue-400">Discussion</span>
         </motion.h1>
         <motion.p
           className="max-w-3xl text-white/90 text-lg md:text-xl leading-relaxed"

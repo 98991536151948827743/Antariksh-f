@@ -12,19 +12,9 @@ const teamMembers = [
     quote: "Design meets function in every line.",
     image:
       "https://res.cloudinary.com/doejabjai/image/upload/v1760525772/Akshit_Event_Head_zcldln.jpg",
-    github: "https://github.com/akshitgarg",
-    instagram: "https://www.instagram.com/akshitgarg/",
-    phone: "+91 9876543211",
-  },
-  {
-    name: "Kartikeya Singh",
-    role: "Frontend Developer",
-    quote: "Logic is the foundation of innovation.",
-    image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80",
-    github: "https://github.com/kartikeya",
-    instagram: "https://www.instagram.com/kartikeya/",
-    phone: "+91 9876543212",
+    github: "#",
+    instagram: "#",
+    phone: "#",
   },
   {
     name: "Raghvi Gupta",
@@ -37,13 +27,23 @@ const teamMembers = [
     phone: "#",
   },
   {
+    name: "Kartikeya Singh",
+    role: "Frontend Developer",
+    quote: "Logic is the foundation of innovation.",
+    image:
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760624272/IMG_20251016_194342_r92xwd.jpg",
+    github: "#",
+    instagram: "#",
+    phone: "#",
+  },
+  {
     name: "Rahul Gupta",
     role: "Full Stack Developer",
     quote: "Turning imagination into code.",
     image:
-      "https://avatars.githubusercontent.com/u/9919?s=200&v=4",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760622930/WhatsApp_Image_2025-10-16_at_7.13.10_PM_kynlg1.jpg",
     github: "https://github.com/rahulgupta",
-    instagram: "https://www.instagram.com/rahulgupta/",
+    instagram: "https://www.instagram.com/rahul5g3d/",
     phone: "+91 9877511146",
   },
 ];
