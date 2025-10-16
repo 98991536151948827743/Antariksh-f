@@ -40,7 +40,7 @@ const KalpaPage = () => {
           transition={{ duration: 0.8 }}
         >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            src="https://res.cloudinary.com/doejabjai/image/upload/v1760621151/ChatGPT_Image_Oct_16_2025_06_55_27_PM_r7ihz1.png"
             alt="Kalpa Illustration"
             className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
           />

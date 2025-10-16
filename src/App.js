@@ -41,7 +41,7 @@ import LaunchpadPage from '../src/pages/launchpad/launchPadPage';
 function App() {
   return (
     <BrowserRouter>
-          <ScrollToTop/>
+            <ScrollToTop />
           <FloatingButtons />
           <TechspardhaPopup />
       <Routes>
