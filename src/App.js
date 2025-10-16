@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //import 
 import FloatingButtons from './components/layout/top';
+import ScrollToTop from './pages/extraPages/ScrollToTop';
 
 import Home1 from './pages/homePage';
 import Contact from './pages/contactPage';
@@ -40,6 +41,7 @@ import LaunchpadPage from '../src/pages/launchpad/launchPadPage';
 function App() {
   return (
     <BrowserRouter>
+          <ScrollToTop/>
           <FloatingButtons />
           <TechspardhaPopup />
       <Routes>
@@ -79,7 +81,6 @@ function App() {
         <Route path="/upload-pdf" element={<PdfUpload />} />
 
         {/* contact */}
-        <Route path='/user-contact' element={<ContactPage/>}/>
         <Route path='built-by' element={<BuiltByPage/>}/>
 
 
