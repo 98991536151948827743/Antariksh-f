@@ -3,7 +3,7 @@
   import { OrbitControls, Stars, useTexture, Html } from "@react-three/drei";
   import Navbar from "../components/layout/Navbar";
   import Footer from "../components/layout/footer";
-  import SlidingBackground from "../components/layout/RotatingBackground";
+  
   import { motion, AnimatePresence } from "framer-motion";
 
   // --- Event Data ---
@@ -210,9 +210,7 @@
     return (
       <>
         <Navbar />
-        <div className="fixed inset-0 -z-10 overflow-hidden bg-black">
-          <SlidingBackground />
-        </div>
+
 
         {/* --- Desktop 3D Layout --- */}
         {!isMobile && (

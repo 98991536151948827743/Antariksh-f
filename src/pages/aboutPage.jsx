@@ -8,7 +8,7 @@ const teamMembers = [
   { name: "Garvit Gupta", role: "President", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525778/Garvit_Convenor_mccjnm.jpg" },
   { name: "Diksha Dutta", role: "Vice-President", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525770/Diksha_Co-convenor_x0pytn.jpg" },
   { name: "Jiya Agrawal", role: "General-Secretary", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525779/Jiya_Co-convenor_iyyvpf.jpg" },
-  { name: "Yajat Rajput", role: "Joint-Secretary", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525806/Yajat_Co-convenor_bqhewt.jpg" },
+  { name: "Yajat Rajput", role: "Joint-Secretary", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760685129/WhatsApp_Image_2025-10-17_at_12.38.36_AM_1_rpbcbz.jpg" },
   { name: "Bhavya Arya", role: "Newsletter & Khagol Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525769/Bhavya_Event_Head_eeaor9.jpg" },
   { name: "Kartik Saraswat", role: "Quizzes Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525778/Kartik_Event_Head_tidw33.jpg" },
   { name: "Archit Chhajed", role: "Newsletter Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525769/Archit_Event_Head_rwtjxn.jpg" },

@@ -200,12 +200,12 @@ const ObservatoryPage = () => {
           <p>
             🧭 <strong>Azimuth:</strong> The direction in the sky measured from
             north (0°) through east (90°), south (180°), and west (270°). It
-            tells you *where* to look.
+            tells you <b>where</b> to look.
           </p>
           <p>
             💡 <strong>Magnitude:</strong> The planet’s brightness — smaller
             numbers mean brighter objects. Negative magnitudes (like -3.0) are
-            *extremely bright*, like Venus or Jupiter!
+            <b>extremely bright</b>, like Venus or Jupiter!
           </p>
           <p>
             ✨ <strong>Constellation:</strong> The background constellation the
