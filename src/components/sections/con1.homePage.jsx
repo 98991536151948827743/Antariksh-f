@@ -427,7 +427,8 @@ const HeroSection = () => {
   onClick={() => navigate("/launchpad")}
   className="group px-10 py-5 bg-white/5 backdrop-blur-md border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center gap-3 text-lg shadow-xl"
 >
-  Join Mission
+  Upcoming Launches
+
   <svg
     className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300"
     fill="none"
