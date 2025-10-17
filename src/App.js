@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { inject } from "@vercel/analytics";
-import { HelmetProvider } from "react-helmet-async";
+
 import { lazy, Suspense } from "react";
 import AntarikshLoader from "./components/layout/lazy.loader";
 
@@ -46,7 +46,6 @@ inject();
 function App() {
   return (
     <BrowserRouter>
-      <HelmetProvider>
         <ScrollToTop />
         <FloatingButtons />
         <TechspardhaPopup />
@@ -96,7 +95,6 @@ function App() {
             </Route>
           </Routes>
 
-      </HelmetProvider>
     </BrowserRouter>
   );
 }
