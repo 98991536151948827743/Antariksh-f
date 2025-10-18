@@ -33,7 +33,7 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/doejabjai/image/upload/v1760624272/IMG_20251016_194342_r92xwd.jpg",
     github: "#",
-    instagram: "#",
+    instagram: "https://www.instagram.com/im_kartikeya_011?igsh=ZGZxYWRnZTMwdzZy",
     phone: "#",
   },
   {
