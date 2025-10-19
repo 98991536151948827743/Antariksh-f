@@ -28,7 +28,7 @@ const events = [
     description:
       "A Squid Game-inspired team event with space-themed elimination challenges.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1759938217/ChatGPT_Image_Oct_8_2025_08_34_09_PM_uzbdsw.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760872840/Astro_arena_Instagram_Post_2_bvrtyb.png",
     details:
       "Team-based event (2-3 members) inspired by Squid Games, where each round will be an elimination round...",
   },
