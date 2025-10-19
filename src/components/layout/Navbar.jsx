@@ -431,13 +431,13 @@ export default function Navbar() {
               id="mobile-menu"
               role="dialog"
               aria-modal="true"
-              className="relative w-full max-w-md mx-auto bg-gray-900/98 rounded-2xl shadow-2xl ring-1 ring-white/6 overflow-hidden"
+              className="relative w-full max-w-md mx-auto bg-gray-900/98 rounded-2xl shadow-2xl ring-1 ring-white/6 overflow-hidden max-h-[70vh] flex flex-col"
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={panelVariants}
             >
-              <div className="px-6 py-6 flex flex-col space-y-4">
+              <div className="px-6 py-6 flex flex-col space-y-4 overflow-y-auto">
                 {navItems.map((it) =>
                   it.dropdown ? (
                     <MobileDropdown
