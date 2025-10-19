@@ -25,6 +25,7 @@ const footerSections = {
     { name: "Space Explorations", path: "/blog/space" },
     { name: "Astro Facts", path: "/blog/facts" },
     { name: "Upcoming Launches", path: "/launchpad" },
+      {name : "planet-observation", path:"/blog/planet-observation"}
   ],
 };
 

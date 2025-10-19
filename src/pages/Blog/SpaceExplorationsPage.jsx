@@ -4,8 +4,7 @@ import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/footer";
 import Button from "../../components/ui/Button";
 
-const API_URL = "https://api.spaceflightnewsapi.net/v4/articles/";
-const PAGE_SIZE = 30; // articles per page
+// articles per page
 
 const SpaceExplorationsPage = () => {
   const [articles, setArticles] = useState([]);
@@ -13,7 +12,8 @@ const SpaceExplorationsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [totalCount, setTotalCount] = useState(0);
-
+      const API_URL = process.env.REACT_APP_SPACEFLIGHT_API;
+      const PAGE_SIZE = 30; 
   const fetchArticles = async (pageNumber) => {
     try {
       setLoading(true);
@@ -22,6 +22,7 @@ const SpaceExplorationsPage = () => {
         `${API_URL}?is_featured=true&limit=${PAGE_SIZE}&offset=${offset}`
       );
       const data = await res.json();
+
 
       if (data.results) {
         setArticles(data.results);

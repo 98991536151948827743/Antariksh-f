@@ -11,11 +11,11 @@ import About from './pages/aboutPage';
 import EventPage from './pages/eventPage';
 import LayoutWrapper from './pages/LayoutWrapper';
 import NotFoundPage from './pages/NotFoundPage';
-import PdfUpload from './pages/Upload_pdf/PdfUpload';
+// import PdfUpload from './pages/Upload_pdf/PdfUpload';
 
 // Teams
 import KalpaPage from './pages/teams/kalpa.page';
-import ObservatoryPage from './pages/teams/observatory.page';
+import ObservatoryTeamPage from './pages/teams/observatory.page';
 import NewsletterPage from './pages/teams/newsletter.page';
 import DesignMediaPage  from './pages/teams/media.page';
 import WebTechPage from './pages/teams/tech.page';
@@ -30,6 +30,7 @@ import BlogPage from './pages/Blog/blogPage';
 import BlogDetailsPage from './pages/Blog/blogDetailsPage';
 import AstroFactsPage from './pages/Blog/astroFacts';
 import SpaceExplorationsPage from './pages/Blog/SpaceExplorationsPage';
+import PlanetObservatoryPage from './pages/Blog/planetObsservation.jsx';
 
 //contact
 import ContactPage from './pages/api/contact'
@@ -60,7 +61,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<EventPage />} />
-          <Route path="/teams/observatory" element={<ObservatoryPage />} />
+          <Route path="/teams/observatory" element={<ObservatoryTeamPage />} />
           <Route path="/teams/kalpa" element={<KalpaPage />} />
 
         <Route path="/teams/newsletter" element={<NewsletterPage />} />
@@ -79,9 +80,10 @@ function App() {
         <Route path="/blog/:id" element={<BlogDetailsPage />} />
         <Route path="/blog/facts" element={<AstroFactsPage />} />
         <Route path="/blog/space" element={<SpaceExplorationsPage />} />
+<Route path="/blog/planet-observation" element={<PlanetObservatoryPage />} />
 
         {/* PDF Upload */}
-        <Route path="/upload-pdf" element={<PdfUpload />} />
+        {/* <Route path="/upload-pdf" element={<PdfUpload />} /> */}
 
         {/* contact */}
         <Route path='built-by' element={<BuiltByPage/>}/>
