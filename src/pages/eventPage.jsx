@@ -13,7 +13,7 @@ const events = [
     id: 1,
     title: "Astrohunt",
     date: "",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSf-0uwqZm6BHT8kep_5Reil0x_AWbWqiOkoCsoGdNnJ_1yLKA/viewform?usp=header",
+    link: "https://res.cloudinary.com/doejabjai/image/upload/v1760899192/AKSHIT_7814969870_3_t5mert.png",
     description:
       "Team-based treasure hunt where teams solve astronomy-related clues to reach the final destination.",
     image:
@@ -24,11 +24,11 @@ const events = [
     id: 2,
     title: "Astroarena",
     date: "",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSfafr2-UkZdyVsCfl4i6i2OKQ9swPPyB2Dm7p1Pf2Y4jlNnGg/viewform?usp=header",
+    link: "https://res.cloudinary.com/doejabjai/image/upload/v1760872840/Astro_arena_Instagram_Post_2_bvrtyb.png",
     description:
       "A Squid Game-inspired team event with space-themed elimination challenges.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1760872840/Astro_arena_Instagram_Post_2_bvrtyb.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760897178/Astro_arena_Instagram_Post_3__16x9_rldt7e.png",
     details:
       "Team-based event (2-3 members) inspired by Squid Games, where each round will be an elimination round...",
   },
@@ -40,7 +40,7 @@ const events = [
     description:
       "Design and launch your own water bottle rocket with creativity and precision.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1759938564/ChatGPT_Image_Oct_8_2025_09_18_54_PM_m8fkfa.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760897520/pfin3_dwvuvf.png",
     details:
       "Have you ever been dazzled by rockets piercing the blue skies? Don't you want to launch one yourself? We, here at Antariksh, organize an annual event as part of NIT Kurukshetra's tech fest, Techsparadha, called 'Prakshepan' - a water rocket event. It's an event where you push your limits to reach the Kármán line and conquer the depths of the cosmos. This event gives astrophiles a chance to witness Newton's third law of motion in action and to send their aspirations rocketing high into the sky. The event begins with practical workshops that introduce you to the world of rocket science, followed by fascinating preliminaries and the competitive and sky-high finals. Join us on a journey from the blue skies to the infinite with our cosmic family, 'Antariksh,' using your imaginative mind, skillful hands, and a willingness to learn.",
   },
