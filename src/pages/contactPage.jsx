@@ -65,28 +65,35 @@ const Contact = () => {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
+  if (!formData.name || !formData.email || !formData.subject || !formData.message) return;
 
-    if (!formData.name || !formData.email || !formData.subject || !formData.message)
-      return;
+  setLoading(true);
 
-    setLoading(true);
-    try {
-      const response = await fetch(`${API_URL}/api/services/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, deviceInfo }),
-      });
-      const data = await response.json();
-      setPopupData({ success: data.success, message: data.message });
-      setShowPopup(true);
-    } catch (err) {
-      setPopupData({ success: false, message: "Network error" });
-      setShowPopup(true);
-    } finally {
-      setLoading(false);
+  try {
+    const response = await fetch(`${API_URL}/api/services/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formData, deviceInfo }),
+    });
+
+    const data = await response.json();
+
+    // If some emails failed, show warning along with main message
+    let messageToShow = data.message;
+    if (data.warning && data.warning.length > 0) {
+      messageToShow += "\n\nWarnings:\n" + data.warning.join("\n");
     }
-  };
+
+    setPopupData({ success: data.success, message: messageToShow });
+    setShowPopup(true);
+  } catch (err) {
+    setPopupData({ success: false, message: "Network error. Please try again later." });
+    setShowPopup(true);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const closePopup = () => setShowPopup(false);
 

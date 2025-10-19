@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const POPUP_STORAGE_KEY = process.env.REACT_APP_STORAGE_KEY || "lastSeenTechspardhaPopup";
 const POPUP_INTERVAL = Number(process.env.REACT_APP_INTERVAL) || 86400;
@@ -149,13 +150,16 @@ const TechspardhaPopup = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-                <a
-                  href="/events"
-                  onClick={handleClose}
-                  className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:bg-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
-                >
-                  Register Now
-                </a>
+<Link
+  to="/events"
+  onClick={handleClose}
+  className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:bg-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+>
+  Register Now
+</Link>
+
+
+
                 <button
                   onClick={handleClose}
                   className="px-6 py-3 bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-full font-semibold shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
