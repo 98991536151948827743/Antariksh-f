@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const POPUP_STORAGE_KEY = process.env.REACT_APP_STORAGE_KEY || "techspardha_popup_seen";
+const POPUP_STORAGE_KEY = process.env.REACT_APP_STORAGE_KEY || "lastSeenTechspardhaPopup";
 const POPUP_INTERVAL = Number(process.env.REACT_APP_INTERVAL) || 86400;
 
 const TechspardhaPopup = () => {
