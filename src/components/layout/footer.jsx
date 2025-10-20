@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin, FaYoutube, FaGithub } from "react-icons/fa";
 
+
 const footerSections = {
   Explore: [
     { name: "Home", path: "/" },
@@ -178,7 +179,10 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Antariksh. All rights reserved.</p>
           <p className="text-gray-500">
             Built with 💫 by{" "}
-            <span className="text-green-400 font-medium">Web & Tech Team</span>
+<Link to="/built-by">
+  <span className="text-green-400 font-medium hover:underline">Web & Tech Team</span>
+</Link>
+
           </p>
         </div>
       </div>
