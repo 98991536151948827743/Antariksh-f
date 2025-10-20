@@ -8,7 +8,7 @@ import StarBackground from "../components/layout/StarBackground";
 import * as THREE from "three";
 
 // --- Categories ---
-const categories = ["Techspardha", "Observation Sessions", "Workshops", "Events", "Trips"];
+const categories = ["Techspardha", "Observation Sessions", "Workshops and Events", "Trips"];
 
 // --- Rotating Earth Component ---
 function Earth() {
