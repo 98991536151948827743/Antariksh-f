@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Main Pages -->
+  <url>
+    <loc>https://antarikshnitkkr.live/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/about</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/events</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/gallery</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/blog</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/astro-facts</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/upcoming-launches</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/contact</loc>
+  </url>
+  <url>
+    <loc>https://antarikshnitkkr.live/team</loc>
+  </url>
+  
+</urlset>
