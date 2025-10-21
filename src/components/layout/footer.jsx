@@ -188,7 +188,7 @@ export default function Footer() {
       </div>
 
       {/* Top Gradient Line */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400/30 via-transparent to-green-400/30 blur-md" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400/30 via-transparent to-blue-400/30 blur-md" />
     </footer>
   );
 }
