@@ -60,7 +60,7 @@ const events = [
     id: 5,
     title: "Stellar Screens",
     date: "",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLScYHtUq3DPPVRcHiqjcc11OAJkh1VN5jb4Y_kyHwZsyZLE7AA/viewform?usp=header",
+    link: "https://res.cloudinary.com/doejabjai/image/upload/v1761053779/Resized_Stellar_1_bqpuck.png",
     description:
       "Cinematic science screenings exploring the cosmos through sci-fi and science shows.",
     image:
