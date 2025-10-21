@@ -13,6 +13,12 @@ const teamMembers = [
   { name: "Kartik Saraswat", role: "Quizzes Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525778/Kartik_Event_Head_tidw33.jpg" },
   { name: "Archit Chhajed", role: "Newsletter Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525769/Archit_Event_Head_rwtjxn.jpg" },
   { name: "Akshit Garg", role: "Web Development Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525772/Akshit_Event_Head_zcldln.jpg" },
+    { name: "Aditya Aryan", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525768/Aditya_Event_Head_p727xh.jpg" },
+      { name: "Damini", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525770/Damini_Event_Head_yrqmuo.jpg" },
+        { name: "Jashan", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525778/Jashan_Event_Head_fgruao.jpg" },
+          { name: "Yash", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525807/Yash_Event_Head_u6zkhz.jpg" },
+            { name: "Shivam", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525793/Shivam_Event_Head_pt2ttx.jpg" },
+
   { name: "Malavika Gupta", role: "Content Writing Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760544925/WhatsApp_Image_2025-10-15_at_8.07.08_PM_vjrvmg.jpg" },
   { name: "Niknangra R. Marak", role: "Video Editing Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760544827/WhatsApp_Image_2025-10-15_at_8.29.48_PM_ittqym.jpg" },
   { name: "Kamya", role: "Social Media Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760545295/1000150831_wk5hy0.jpg" },
