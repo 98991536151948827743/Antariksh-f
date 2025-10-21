@@ -52,7 +52,7 @@ const events = [
     description:
       "Two-round event blends astrohunt with a space-themed board game for an unforgettable experience!",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1761062194/Zathura_1_qa1upj.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1761064292/Zathura_3_y8wqr6.png",
     details:
       "Zathura- a thrilling game inspired by the timeless classic -‘Zathura’, is an astronomy-themed board game that takes you on a journey through the cosmos like never before! A team event that is designed to take you into the awe-inspiring depths of space, where you explore distant galaxies, discover celestial wonders, and conquer the challenges of the unknown universe. Your mission is to unravel the mysteries of the cosmos- from the birth of stars to exploring the dark mysteries of black holes, challenging your brains by solving mind-bending puzzles on physics and breathtaking cosmic phenomena like supernovae and nebulae, all while competing with fellow explorers to become the ultimate cosmic conqueror. We at Antariksh organize Zathura every year to attract space enthusiasts to embark on an exciting journey through the cosmos while testing their skills in the endless vastness and darkness of space.",
   },
