@@ -24,7 +24,7 @@ const events = [
     id: 2,
     title: "Astroarena",
     date: "",
-    link: "https://res.cloudinary.com/doejabjai/image/upload/v1760872840/Astro_arena_Instagram_Post_2_bvrtyb.png",
+    link: "https://res.cloudinary.com/doejabjai/image/upload/v1761053499/Astro_arena_Instagram_Post_4_gij7ei.png",
     description:
       "A Squid Game-inspired team event with space-themed elimination challenges.",
     image:
