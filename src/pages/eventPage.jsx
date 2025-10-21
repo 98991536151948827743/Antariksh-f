@@ -64,7 +64,7 @@ const events = [
     description:
       "Cinematic science screenings exploring the cosmos through sci-fi and science shows.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1761063287/Resized_Stellar_Final_1_xykqbl.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1761064502/Resized_Stellar_20251021_220159_0000_rmdmr5.png",
     details:
       "Cinema is a part of everybody's life, and the same goes for Antariksh. Here at Antariksh, we use it as a tool to dive into the mysteries of the cosmos and to explore the imagination of the human mind through science fiction and science shows. Throughout the year, Antariksh organizes screenings of various science shows and movies for the sci-fi fans of NIT Kurukshetra. Last year, we screened some episodes of one of the best science shows of all time, 'Cosmos: A Spacetime Odyssey.' The show took the audience on a cosmic journey, delving into the dimensions of fascinating scientific exploration and the mysteries of limitless space. Antariksh will always extend invitations to cosmic adventurers by organizing events such as 'The Stellar Screens' to explore the boundless dimensions of possibilities.",
   },
