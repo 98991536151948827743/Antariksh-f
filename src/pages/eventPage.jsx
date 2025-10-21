@@ -13,22 +13,22 @@ const events = [
     id: 1,
     title: "Astrohunt",
     date: "",
-    link: "https://res.cloudinary.com/doejabjai/image/upload/v1760899192/AKSHIT_7814969870_3_t5mert.png",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSf-0uwqZm6BHT8kep_5Reil0x_AWbWqiOkoCsoGdNnJ_1yLKA/viewform",
     description:
       "Team-based treasure hunt where teams solve astronomy-related clues to reach the final destination.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1759938895/ChatGPT_Image_Oct_8_2025_09_24_20_PM_pkmux6.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1760899192/AKSHIT_7814969870_3_t5mert.png",
     details:
       "Curious mind, hidden clues, and cosmic solutions! Astrophiles, do you love solving puzzles and answering riddles? Are you captivated by cosmic mysteries that make your mind wander into the deep realms of space? Antariksh presents you with Astrohunt. Gather your wits and dive deep into solving the cosmic riddles. Solve a riddle, find a clue, and move on to the next mystery. Each clue takes you to a different location. Be the first one to find your destination, be the first one to unravel the conundrums space holds. It is a race against time, are you fast enough?",  },
   {
     id: 2,
     title: "Astroarena",
     date: "",
-    link: "https://res.cloudinary.com/doejabjai/image/upload/v1761053499/Astro_arena_Instagram_Post_4_gij7ei.png",
+    link: "https://forms.gle/vw9svfDNGFFEbV4t8",
     description:
       "A Squid Game-inspired team event with space-themed elimination challenges.",
     image:
-      "https://res.cloudinary.com/doejabjai/image/upload/v1760897178/Astro_arena_Instagram_Post_3__16x9_rldt7e.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1761053499/Astro_arena_Instagram_Post_4_gij7ei.png",
     details:
       "Team-based event (2-3 members) inspired by Squid Games, where each round will be an elimination round...",
   },
@@ -60,11 +60,11 @@ const events = [
     id: 5,
     title: "Stellar Screens",
     date: "",
-    link: "https://res.cloudinary.com/doejabjai/image/upload/v1761053779/Resized_Stellar_1_bqpuck.png",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScYHtUq3DPPVRcHiqjcc11OAJkh1VN5jb4Y_kyHwZsyZLE7AA/viewform?usp=header",
     description:
       "Cinematic science screenings exploring the cosmos through sci-fi and science shows.",
     image:
-      "https://res.cloudinary.com/dkk4f02zv/image/upload/v1760292304/Gemini_Generated_Image_8e65i98e65i98e65_ci6wcs.png",
+      "https://res.cloudinary.com/doejabjai/image/upload/v1761053779/Resized_Stellar_1_bqpuck.png",
     details:
       "Cinema is a part of everybody's life, and the same goes for Antariksh. Here at Antariksh, we use it as a tool to dive into the mysteries of the cosmos and to explore the imagination of the human mind through science fiction and science shows. Throughout the year, Antariksh organizes screenings of various science shows and movies for the sci-fi fans of NIT Kurukshetra. Last year, we screened some episodes of one of the best science shows of all time, 'Cosmos: A Spacetime Odyssey.' The show took the audience on a cosmic journey, delving into the dimensions of fascinating scientific exploration and the mysteries of limitless space. Antariksh will always extend invitations to cosmic adventurers by organizing events such as 'The Stellar Screens' to explore the boundless dimensions of possibilities.",
   },
