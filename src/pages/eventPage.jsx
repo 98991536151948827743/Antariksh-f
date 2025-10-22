@@ -62,7 +62,7 @@ const events = [
     date: "",
     link: "https://docs.google.com/forms/d/e/1FAIpQLScYHtUq3DPPVRcHiqjcc11OAJkh1VN5jb4Y_kyHwZsyZLE7AA/viewform?usp=header",
     description:
-      "Cinematic science screenings exploring the cosmos through sci-fi and science shows.",
+      "a cosmic canvas for dreamers, writers, and creators. Express your imagination through astrophotography, writing, art, or film. Unveil your vision of the universe and win stellar rewards for your creativity!",
     image:
       "https://res.cloudinary.com/doejabjai/image/upload/v1761064502/Resized_Stellar_20251021_220159_0000_rmdmr5.png",
     details:

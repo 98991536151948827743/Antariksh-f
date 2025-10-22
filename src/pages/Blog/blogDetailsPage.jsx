@@ -43,7 +43,7 @@ const BlogDetailsPage = () => {
       >
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 text-blue-400 hover:text-green-300 transition"
+          className="mb-6 text-blue-400 hover:text-blue-300 transition"
         >
           ← Back
         </button>
