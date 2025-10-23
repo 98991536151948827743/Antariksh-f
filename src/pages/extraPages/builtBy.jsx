@@ -42,7 +42,7 @@ const teamMembers = [
     quote: "Turning imagination into code.",
     image:
       "https://res.cloudinary.com/doejabjai/image/upload/v1760622930/WhatsApp_Image_2025-10-16_at_7.13.10_PM_kynlg1.jpg",
-    github: "https://github.com/rahulgupta",
+    github: "#",
     instagram: "https://www.instagram.com/rahul5g3d/",
     phone: "+91 9877511146",
   },
