@@ -1,11 +1,71 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Memoized star component to prevent re-renders
+const Star = memo(({ style, animationProps }) => (
+  <motion.div
+    className="absolute bg-white rounded-full"
+    style={style}
+    animate={animationProps.animate}
+    transition={animationProps.transition}
+  />
+));
+
+// Memoized orbital ring component
+const OrbitalRing = memo(({ size, color, index }) => (
+  <motion.div
+    className="absolute rounded-full border"
+    style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      borderColor: color,
+      borderWidth: '2px',
+    }}
+    animate={{
+      rotate: index % 2 === 0 ? 360 : -360,
+      scale: [1, 1.05, 1],
+    }}
+    transition={{
+      rotate: { duration: 20 + index * 5, repeat: Infinity, ease: "linear" },
+      scale: { duration: 3 + index, repeat: Infinity, ease: "easeInOut" },
+    }}
+  />
+));
+
+// Memoized stat card
+const StatCard = memo(({ stat, index }) => (
+  <motion.div
+    className="text-center"
+    whileHover={{ scale: 1.1, y: -5 }}
+    transition={{ type: "spring", stiffness: 400 }}
+  >
+    <div className="mb-3 flex justify-center">
+      <div className="p-3 bg-gradient-to-br from-blue-500/20 to-blue-500/20 rounded-xl">
+        <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
+        </svg>
+      </div>
+    </div>
+    <motion.div 
+      className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-400 via-blue-400 to-pink-400 text-transparent bg-clip-text mb-2"
+      animate={{ scale: [1, 1.05, 1] }}
+      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+    >
+      {stat.value}
+    </motion.div>
+    <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">
+      {stat.label}
+    </div>
+  </motion.div>
+));
+
 const HeroSection = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
+  const rafRef = useRef(null);
+  
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
@@ -16,22 +76,92 @@ const HeroSection = () => {
   const smoothMouseX = useSpring(mouseX, { damping: 50, stiffness: 200 });
   const smoothMouseY = useSpring(mouseY, { damping: 50, stiffness: 200 });
 
+  // Reduce stars on mobile
+  const starCount = useMemo(() => {
+    return typeof window !== 'undefined' && window.innerWidth < 768 ? 30 : 100;
+  }, []);
+
+  // Pre-calculate star positions and animations
+  const stars = useMemo(() => {
+    return [...Array(starCount)].map((_, i) => {
+      const size = Math.random() * 3 + 1;
+      return {
+        id: i,
+        style: {
+          width: `${size}px`,
+          height: `${size}px`,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        },
+        animationProps: {
+          animate: {
+            opacity: [0.2, 1, 0.2],
+            scale: [1, 1.5, 1],
+          },
+          transition: {
+            duration: Math.random() * 3 + 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }
+        }
+      };
+    });
+  }, [starCount]);
+
+  // Orbital rings configuration
+  const orbitalRings = useMemo(() => {
+    return [...Array(4)].map((_, i) => ({
+      id: i,
+      size: 400 + i * 200,
+      color: `rgba(${i % 2 === 0 ? '59, 130, 246' : '147, 51, 234'}, ${0.2 - i * 0.04})`,
+      index: i
+    }));
+  }, []);
+
+  // Stats data
+  const stats = useMemo(() => [
+    { label: 'Active Teams', value: '10+', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+    { label: 'Members', value: '300+', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
+    { label: 'Events', value: '10+', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+  ], []);
+
+  // Throttled mouse move handler using RAF
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) / 25;
-      const y = (e.clientY - rect.top - rect.height / 2) / 25;
-      mouseX.set(x);
-      mouseY.set(y);
+      if (rafRef.current) return;
       
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 40,
-        y: (e.clientY / window.innerHeight - 0.5) * 40,
+      rafRef.current = requestAnimationFrame(() => {
+        if (!containerRef.current) {
+          rafRef.current = null;
+          return;
+        }
+        
+        const rect = containerRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / 25;
+        const y = (e.clientY - rect.top - rect.height / 2) / 25;
+        mouseX.set(x);
+        mouseY.set(y);
+        
+        setMousePosition({
+          x: (e.clientX / window.innerWidth - 0.5) * 40,
+          y: (e.clientY / window.innerHeight - 0.5) * 40,
+        });
+        
+        rafRef.current = null;
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+
+    // Only add mouse tracking on desktop
+    if (window.innerWidth >= 768) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, [mouseX, mouseY]);
 
   return (
@@ -39,26 +169,8 @@ const HeroSection = () => {
       
       {/* Starfield Background */}
       <div className="absolute inset-0">
-        {[...Array(100)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              opacity: [0.2, 1, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
+        {stars.map(star => (
+          <Star key={star.id} style={star.style} animationProps={star.animationProps} />
         ))}
       </div>
 
@@ -90,15 +202,16 @@ const HeroSection = () => {
             src="/19617.jpg"
             alt="Earth"
             className="w-full h-full object-cover opacity-30"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
       </motion.div>
 
-      {/* 3D Floating Planets SVG */}
+      {/* 3D Floating Planets SVG - Hidden on mobile */}
       <motion.div
         style={{ x: smoothMouseX, y: smoothMouseY }}
-        className="absolute top-20 right-20 w-32 h-32 opacity-80"
+        className="absolute top-20 right-20 w-32 h-32 opacity-80 hidden md:block"
       >
         <motion.svg
           viewBox="0 0 200 200"
@@ -123,13 +236,13 @@ const HeroSection = () => {
         </motion.svg>
       </motion.div>
 
-      {/* 3D Saturn SVG */}
+      {/* 3D Saturn SVG - Hidden on mobile */}
       <motion.div
         style={{ 
           x: useTransform(smoothMouseX, (x) => -x * 1.5), 
           y: useTransform(smoothMouseY, (y) => -y * 1.5) 
         }}
-        className="absolute bottom-32 left-20 w-40 h-40 opacity-70"
+        className="absolute bottom-32 left-20 w-40 h-40 opacity-70 hidden md:block"
       >
         <motion.svg
           viewBox="0 0 200 200"
@@ -153,13 +266,13 @@ const HeroSection = () => {
         </motion.svg>
       </motion.div>
 
-      {/* 3D Asteroid SVG */}
+      {/* 3D Asteroid SVG - Hidden on mobile */}
       <motion.div
         style={{ 
           x: useTransform(smoothMouseX, (x) => x * 0.8), 
           y: useTransform(smoothMouseY, (y) => y * 0.8) 
         }}
-        className="absolute top-40 left-32 w-20 h-20 opacity-60"
+        className="absolute top-40 left-32 w-20 h-20 opacity-60 hidden md:block"
       >
         <motion.svg
           viewBox="0 0 100 100"
@@ -178,7 +291,7 @@ const HeroSection = () => {
 
       {/* Orbiting Satellite */}
       <motion.div
-        className="absolute top-1/2 left-1/2 w-64 h-64"
+        className="absolute top-1/2 left-1/2 w-64 h-64 hidden md:block"
         style={{ x: '-50%', y: '-50%' }}
       >
         <motion.div
@@ -207,35 +320,18 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Dynamic Orbital Rings */}
+      {/* Dynamic Orbital Rings - Hidden on mobile */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none hidden md:flex"
         style={{ x: mousePosition.x, y: mousePosition.y }}
       >
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full border"
-            style={{
-              width: `${400 + i * 200}px`,
-              height: `${400 + i * 200}px`,
-              borderColor: `rgba(${i % 2 === 0 ? '59, 130, 246' : '147, 51, 234'}, ${0.2 - i * 0.04})`,
-              borderWidth: '2px',
-            }}
-            animate={{
-              rotate: i % 2 === 0 ? 360 : -360,
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              rotate: { duration: 20 + i * 5, repeat: Infinity, ease: "linear" },
-              scale: { duration: 3 + i, repeat: Infinity, ease: "easeInOut" },
-            }}
-          />
+        {orbitalRings.map(ring => (
+          <OrbitalRing key={ring.id} size={ring.size} color={ring.color} index={ring.index} />
         ))}
       </motion.div>
 
-      {/* Cosmic Grid */}
-      <div className="absolute inset-0 perspective-1000">
+      {/* Cosmic Grid - Simplified on mobile */}
+      <div className="absolute inset-0 perspective-1000 hidden md:block">
         <motion.div 
           className="w-full h-full"
           style={{
@@ -372,8 +468,8 @@ const HeroSection = () => {
             </motion.span>
           </motion.h1>
           
-          {/* 3D Text Shadow Effect */}
-          <div className="absolute inset-0 -z-10 blur-2xl opacity-50">
+          {/* 3D Text Shadow Effect - Hidden on mobile */}
+          <div className="absolute inset-0 -z-10 blur-2xl opacity-50 hidden md:block">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-center leading-none text-blue-500">
               <span className="block mb-4">ANTARIKSH</span>
               <span className="block">SPACE SOCIETY</span>
@@ -393,7 +489,6 @@ const HeroSection = () => {
         </motion.p>
 
         {/* CTA Buttons */}
-
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -407,7 +502,6 @@ const HeroSection = () => {
             className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 via-blue-500 to-pink-100 text-blue-100 font-bold rounded-full overflow-hidden text-lg shadow-2xl shadow-blue-500/50"
           >
             <motion.div
-
               className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"
               initial={{ x: '100%' }}
               whileHover={{ x: '0%' }}
@@ -421,28 +515,27 @@ const HeroSection = () => {
             </span>
           </motion.button>
           
-<motion.button
-  whileHover={{ scale: 1.05, y: -5 }}
-  whileTap={{ scale: 0.95 }}
-  onClick={() => navigate("/launchpad")}
-  className="group px-10 py-5 bg-white/5 backdrop-blur-md border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center gap-3 text-lg shadow-xl"
->
-  Upcoming Launches
-
-  <svg
-    className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M12 4v16m8-8H4"
-    />
-  </svg>
-</motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/launchpad")}
+            className="group px-10 py-5 bg-white/5 backdrop-blur-md border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center gap-3 text-lg shadow-xl"
+          >
+            Upcoming Launches
+            <svg
+              className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+          </motion.button>
         </motion.div>
 
         {/* Stats Panel */}
@@ -454,41 +547,12 @@ const HeroSection = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-blue-500/10 to-pink-500/10 rounded-3xl blur-xl" />
           <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 grid grid-cols-3 gap-8">
-            {[
-              { label: 'Active Teams', value: '10+', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-              { label: 'Members', value: '300+', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
-              { label: 'Events', value: '10+', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                className="text-center"
-                whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                <div className="mb-3 flex justify-center">
-                  <div className="p-3 bg-gradient-to-br from-blue-500/20 to-blue-500/20 rounded-xl">
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
-                    </svg>
-                  </div>
-                </div>
-                <motion.div 
-                  className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-400 via-blue-400 to-pink-400 text-transparent bg-clip-text mb-2"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </motion.div>
+            {stats.map((stat, i) => (
+              <StatCard key={i} stat={stat} index={i} />
             ))}
           </div>
         </motion.div>
       </motion.div>
-
-
     </div>
   );
 };

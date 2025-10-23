@@ -14,7 +14,7 @@ const teamMembers = [
   { name: "Archit Chhajed", role: "Newsletter Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525769/Archit_Event_Head_rwtjxn.jpg" },
   { name: "Akshit Garg", role: "Web Development Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525772/Akshit_Event_Head_zcldln.jpg" },
     { name: "Aditya Aryan", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525768/Aditya_Event_Head_p727xh.jpg" },
-      { name: "Damini royal", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525770/Damini_Event_Head_yrqmuo.jpg" },
+      { name: "Damini Goyal", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525770/Damini_Event_Head_yrqmuo.jpg" },
         { name: "Jashan pal Singh", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525778/Jashan_Event_Head_fgruao.jpg" },
           { name: "Yash saxena", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525807/Yash_Event_Head_u6zkhz.jpg" },
             { name: "Shivam Pratap singh", role: "Event Head", image: "https://res.cloudinary.com/doejabjai/image/upload/v1760525793/Shivam_Event_Head_pt2ttx.jpg" },
